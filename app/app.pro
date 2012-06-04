@@ -1,3 +1,5 @@
+QT += core
+
 SOURCES += \
     main.cpp \
     mainwindow.cpp
