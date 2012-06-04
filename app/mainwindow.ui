@@ -1,7 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
@@ -15,10 +13,157 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QMenuBar" name="menubar"/>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>170</y>
+      <width>114</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuLol">
+    <property name="title">
+     <string>|</string>
+    </property>
+    <addaction name="actionProut"/>
+   </widget>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen_DSM"/>
+    <addaction name="separator"/>
+    <addaction name="actionNew_Clustering"/>
+    <addaction name="actionLoad_Clustering"/>
+    <addaction name="separator"/>
+    <addaction name="actionSave_Clustering"/>
+    <addaction name="actionSave_Clustering_As"/>
+    <addaction name="separator"/>
+    <addaction name="actionExport_As"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit_2"/>
+   </widget>
+   <widget class="QMenu" name="menuMetrics">
+    <property name="title">
+     <string>Metrics</string>
+    </property>
+    <addaction name="actionPropagation_Cost"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionRedraw"/>
+    <addaction name="separator"/>
+    <addaction name="actionFind_2"/>
+    <addaction name="separator"/>
+    <addaction name="actionShow_Row_Labels"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuLol"/>
+   <addaction name="menuFile"/>
+   <addaction name="menuMetrics"/>
+   <addaction name="menuView"/>
+   <addaction name="menuHelp"/>
+  </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionProut">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionOpen_DSM">
+   <property name="text">
+    <string>Open DSM</string>
+   </property>
+  </action>
+  <action name="actionNew_Clustering">
+   <property name="text">
+    <string>New Clustering</string>
+   </property>
+  </action>
+  <action name="actionLoad_Clustering">
+   <property name="text">
+    <string>Load Clustering</string>
+   </property>
+  </action>
+  <action name="actionSave_Clustering">
+   <property name="text">
+    <string>Save Clustering</string>
+   </property>
+  </action>
+  <action name="actionSave_Clustering_As">
+   <property name="text">
+    <string>Save Clustering As</string>
+   </property>
+  </action>
+  <action name="actionExport_As">
+   <property name="text">
+    <string>Export As</string>
+   </property>
+  </action>
+  <action name="actionExit_2">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionPropagation_Cost">
+   <property name="text">
+    <string>Propagation Cost</string>
+   </property>
+  </action>
+  <action name="actionRedraw">
+   <property name="text">
+    <string>Redraw</string>
+   </property>
+  </action>
+  <action name="actionFind">
+   <property name="text">
+    <string>Find</string>
+   </property>
+  </action>
+  <action name="actionFind_2">
+   <property name="text">
+    <string>Find</string>
+   </property>
+  </action>
+  <action name="actionShow_Row_Labels">
+   <property name="text">
+    <string>Show Row Labels</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
  </widget>
- <pixmapfunction/>
+ <resources/>
  <connections/>
 </ui>
