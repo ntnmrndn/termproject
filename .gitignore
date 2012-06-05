@@ -2,7 +2,9 @@
 *.slo
 *.lo
 *.o
-
+Makefile
+moc_*.cpp
+ui_*.h
 # Compiled Dynamic libraries
 *.so
 
