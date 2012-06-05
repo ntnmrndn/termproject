@@ -1,4 +1,8 @@
-QT += core
+QT       += core gui
+
+TARGET = app
+TEMPLATE = app
+
 
 SOURCES += \
     main.cpp \
