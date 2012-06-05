@@ -1,3 +1,4 @@
+#include <QStringList>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "controller.h"
@@ -9,6 +10,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     QObject::connect(ui->actionOpen_DSM, SIGNAL(activated()), &(this->controller), SLOT(setFileName()));
+
+    ui->listWidget->item(0)->setText("Ici bientot dynamique");
+    ui->listWidget->item(1)->setText("Quand nanbei aura finit");
 }
 
 MainWindow::~MainWindow()
