@@ -7,19 +7,21 @@
 namespace Ui {
 class MainWindow;
 }
+#include "controller.h"
+
+class Controller;
+
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
+  explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-public slots:
-  void setFileName();
 private:
   Ui::MainWindow *ui;
-  QString fileName;
+   Controller controller;
 };
 
 #endif // MAINWINDOW_H

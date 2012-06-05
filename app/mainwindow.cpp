@@ -1,14 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QFileDialog>
+#include "controller.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    fileName("")
+    controller(*this)
 {
     ui->setupUi(this);
-    QObject::connect(ui->actionOpen_DSM, SIGNAL(activated()), this, SLOT(setFileName()));
+    QObject::connect(ui->actionOpen_DSM, SIGNAL(activated()), &(this->controller), SLOT(setFileName()));
 }
 
 MainWindow::~MainWindow()
@@ -16,10 +16,4 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::setFileName()
-{
 
-  fileName = (QFileDialog::getOpenFileName(this, tr("Open File"),
-                                           "/dsm",
-                                           tr("DSM (*.dsm)")));
-}

@@ -2,10 +2,11 @@ QT += core
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
-
+    mainwindow.cpp\
+    controller.cpp
 FORMS += \
     mainwindow.ui
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h\
+    controller.h
