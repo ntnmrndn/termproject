@@ -27,7 +27,13 @@ void MainWindow::drawTable(const QVector<QString> &names, const QVector<QString>
   ui->tableWidget->setRowCount(names.size());
   ui->tableWidget->setColumnCount(data[0].size());
    for (int i = 0; i < names.size(); ++i)
-     ui->tableWidget->setVerticalHeaderItem(i, new QTableWidgetItem(names[i]));
+     {
+       QString s;
+       s.setNum(i);
+       s += " ";
+       s +=  names[i];
+        ui->tableWidget->setVerticalHeaderItem(i, new QTableWidgetItem(s));
+     }
 }
 
 
