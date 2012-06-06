@@ -11,8 +11,8 @@ int  main(int argc, char *argv[])
 
 	app.setOrganizationName("EPITECH");
 	app.setApplicationName("Term project");
-	//MainWindow main_Window;
-	//main_Window.show();
+	MainWindow main_Window;
+	main_Window.show();
 	test.readFile();
 	return (app.exec());
 }
