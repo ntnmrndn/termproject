@@ -7,7 +7,7 @@
 class dsmFile
 {
  public:
-  dsmFile();
+  dsmFile(const QString &);
   ~dsmFile();
   void setNum(int);
   void setPositions(QVector<QString>&);
