@@ -7,7 +7,9 @@
 
 dsmFile::dsmFile(const QString &n):
   _fileName(n),
-  _num(0)
+  _file(n),
+  _num(0),
+  _posFile(0)
 {
 }
 
@@ -16,19 +18,39 @@ void dsmFile::setFileName(QString& fileName)
   _fileName = fileName;
 }
 
-void dsmFile::setNum(int number)
+void dsmFile::setNum()
 {
-  _num = number;
+  _file.seek(0);
+  if (!_file.atEnd())
+    {
+      QString tmp = _file.readLine(); //.simplified().trimmed();
+      _posFile += tmp.size();
+      _num = tmp.toInt();
+    }
 }
 
-void dsmFile::setPositions(QVector<QString> &positions)
+void dsmFile::setPositions()
 {
-  _positions = positions;
+  _file.seek(_posFile);
+  if (!_file.atEnd())
+    {
+      for (int i = 0 ; i < _num ; ++i)
+	{
+	  QString tmp = _file.readLine();
+	  _posFile += tmp.size();
+	  _positions.append(tmp.simplified().trimmed());
+	}
+    }
 }
 
-void dsmFile::setNames(QVector<QString> &names)
+void dsmFile::setNames()
 {
-  _names = names;
+  _file.seek(_posFile);
+  while (!_file.atEnd())
+    {
+      QString tmp = _file.readLine().simplified().trimmed();
+      _names.append(tmp);
+    }
 }
 
 QVector<QString> dsmFile::getNames()
@@ -51,44 +73,22 @@ QString dsmFile::getFileName()
   return _fileName;
 }
 
-int readfile(QString fileName)
+int dsmFile::checkFile()
 {
-  dsmFile *data = new dsmFile();
-  QVector<QString> positions;
-  QVector<QString> names;
-  QFile file(fileName);
-
-  if (!file.exists())
+  if (!_file.exists())
     {
       qDebug() << "File doesn't exist";
       return 0;
     }
-  if (!file.open(QIODevice::ReadOnly))
+  if (!_file.open(QIODevice::ReadOnly))
     {
       qDebug() << "Couldn't open the file";
       return 0;
     }
-  data->setFileName(fileName);
-  if (!file.atEnd())
-    {
-      QString tmp = file.readLine().simplified().trimmed();
-      data->setNum(tmp.toInt());
-      for (int i = 0; i < data->getNum() ; ++i)
-	{
-	  tmp = file.readLine().simplified().trimmed();
-	  positions.append(tmp);
-	}
-      data->setPositions(positions);
-      for (int i = 0 ; i < data->getNum() ; ++i)
-	{
-	  tmp = file.readLine().simplified().trimmed();
-	  names.append(tmp);
-	}
-      data->setNames(names);
-    }
-  qDebug() << data->getNum();
-  qDebug() << data->getNames();
-  qDebug() << data->getPositions();
-  file.close();
   return 1;
+}
+
+void dsmFile::closeFile()
+{
+  _file.close();
 }
