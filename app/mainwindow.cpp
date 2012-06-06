@@ -37,15 +37,12 @@ void MainWindow::drawTable(const QVector<QString> &names, const QVector<QString>
        s +=  names[i];
        ui->tableWidget->setVerticalHeaderItem(i, new QTableWidgetItem(s));
      }
-   QSize size(100, 100);
    for (int i = 0; i < names.size(); ++i)
      {
        for (int j = 0; j < data[0].size(); j += 2)
          {
            QString s(data[i][j]);
-           QTableWidgetItem *item = new QTableWidgetItem(s);
-           item->setSizeHint(size);
-           ui->tableWidget->setItem(i, j / 2, item);
+           ui->tableWidget->setItem(i, j / 2, new QTableWidgetItem(s));
          }
      }
 }
