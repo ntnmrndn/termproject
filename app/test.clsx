@@ -1,0 +1,65 @@
+<cluster xmlns="http://rise.cs.drexel.edu/minos/clsx">
+<group name="root">
+<group name="L0">
+<group name="Recipe">
+<item name="Recipe" />
+</group>
+<group name="sizeF">
+<item name="sizeF" />
+</group>
+</group>
+<group name="L1">
+<group name="Beverage">
+<group name="Beverage">
+<item name="SizeFactor" />
+<item name="Beverage" />
+</group>
+</group>
+</group>
+<group name="L2">
+<group name="Ingredient">
+<item name="Ingredient" />
+</group>
+<group name="CoffeeBeverage">
+<group name="CoffeeBeverage">
+<item name="CoffeeBeverage" />
+<item name="CoffeeBased" />
+</group>
+</group>
+<group name="TeaBeverage">
+<group name="TeaBeverage">
+<item name="TeaBased" />
+<item name="TeaBeverage" />
+</group>
+</group>
+</group>
+<group name="L3">
+<group name="_CoffeeBeverage">
+<item name="Espresso" />
+<item name="HouseBlend" />
+<item name="Decaf" />
+</group>
+<group name="_Ingredient">
+<item name="Jasmine" />
+<item name="WhippedCream" />
+<item name="Ginger" />
+<item name="Milk" />
+<item name="Chocolate" />
+</group>
+<group name="_Recipe">
+<item name="TeaDrink" />
+<item name="MilkFreeTeaDrink" />
+<item name="CoffeeDrink" />
+<item name="MilkFreeCoffeeDrink" />
+</group>
+<group name="_TeaBeverage">
+<item name="WhiteTea" />
+<item name="RedTea" />
+<item name="GreenTea" />
+</group>
+</group>
+<group name="M0">
+<item name="StarBuzz" />
+</group>
+</group>
+</cluster>

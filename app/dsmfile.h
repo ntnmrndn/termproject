@@ -3,22 +3,22 @@
 
 #include <QString>
 #include <QVector>
+#include <QFile>
 
 class dsmFile
 {
  public:
   dsmFile(const QString &);
-  ~dsmFile();
   int checkFile();
   void setPosFile();
 
   void setNum();
   void setPositions();
   void setNames();
-  void setFileName(QString&);
-
+  void setFileName(QString& fileName);
+  
   int getNum();
-  QVector<QString> getNames();
+  QVector<QString> &getNames();
   QVector<QString> getPositions();
   QString getFileName();
   QFile getFile();

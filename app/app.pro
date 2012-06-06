@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui xml
 
 TARGET = app
 TEMPLATE = app
@@ -7,10 +7,15 @@ TEMPLATE = app
 SOURCES += \
     main.cpp \
     mainwindow.cpp\
-    controller.cpp
+    controller.cpp\
+    dsmfile.cpp\
+    ParseXml.cpp
+
 FORMS += \
     mainwindow.ui
 
 HEADERS += \
     mainwindow.h\
-    controller.h
+    controller.h\
+    dsmfile.h\
+    ParseXml.h

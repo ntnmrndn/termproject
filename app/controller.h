@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QString>
+#include "dsmfile.h"
 
 class MainWindow;
 
@@ -12,11 +13,11 @@ class Controller : public QObject
   public:
   Controller(MainWindow &);
 public slots:
-  void setFileName();
+  void openDSM();
   void showAbout();
 private:
-  QString fileName;
   MainWindow    &window;
+  dsmFile       *dsm;
 };
 
 #endif /* !CONTROLLER_H_ */

@@ -4,18 +4,20 @@
 #include "mainwindow.h"
 
 Controller::Controller(MainWindow &win) :
-  fileName(""),
-  window(win)
+  window(win),
+  dsm (0)
 {
 
 }
 
-void Controller::setFileName()
+void Controller::openDSM()
 {
-  fileName = (QFileDialog::getOpenFileName(&(this->window), tr("Open File"),
-                                           "/dsm",
-                                           tr("DSM (*.dsm)")));
-}
+  delete this->dsm;
+  this->dsm = new dsmFile(QFileDialog::getOpenFileName(&(this->window), tr("Open File"),
+                                                       "/dsm",
+                                                       tr("DSM (*.dsm)")));
+  this->window.drawNames(this->dsm->getNames());
+  }
 
 void Controller::showAbout()
 {
