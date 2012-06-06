@@ -17,15 +17,15 @@ void Controller::openDSM()
                                                        "/dsm",
                                                        tr("DSM (*.dsm)")));
   this->window.drawNames(this->dsm->getNames());
-  }
+}
 
 void Controller::showAbout()
 {
-    QMessageBox msgBox;
-    msgBox.setWindowTitle("About");
+  QMessageBox msgBox;
+  msgBox.setWindowTitle("About");
 
 
-    msgBox.setStandardButtons(QMessageBox::Close);
-    msgBox.setText("Team members: \n\n -Antoine Marandon \n -Thibaut Schmitt \n -Gregory Barry \n -Olivier Hugon \n -Nanbou Lin \n");
-    msgBox.exec();
+  msgBox.setStandardButtons(QMessageBox::Close);
+  msgBox.setText("Team members: \n\n -Antoine Marandon \n -Thibaut Schmitt \n -Gregory Barry \n -Olivier Hugon \n -Nanbou Lin \n");
+  msgBox.exec();
 }

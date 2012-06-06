@@ -7,12 +7,12 @@ int  main(int argc, char *argv[])
 {
 	qDebug() << "toto";
 	QApplication app(argc, argv);
-	ParseXml test;
+	// ParseXml test;
 
 	app.setOrganizationName("EPITECH");
 	app.setApplicationName("Term project");
 	MainWindow main_Window;
 	main_Window.show();
-	test.readFile();
+        //	test.readFile();
 	return (app.exec());
 }
