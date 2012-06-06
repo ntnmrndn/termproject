@@ -11,6 +11,12 @@ dsmFile::dsmFile(const QString &n):
   _num(0),
   _posFile(0)
 {
+  if (checkFile())
+    {
+      setNum();
+      setPositions();
+      setNames();
+    }
 }
 
 void dsmFile::setFileName(QString& fileName)
