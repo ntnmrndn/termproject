@@ -5,9 +5,10 @@
 
 #include "readfile.h"
 
-dsmFile::dsmFile()
+dsmFile::dsmFile(const QString &n):
+  _fileName(n),
+  _num(0)
 {
-  _num = 0;
 }
 
 void dsmFile::setFileName(QString& fileName)
@@ -67,7 +68,7 @@ int readfile(QString fileName)
       qDebug() << "Couldn't open the file";
       return 0;
     }
-  
+
   if (!file.atEnd())
     {
       QString tmp = file.readLine().simplified().trimmed();
@@ -83,7 +84,7 @@ int readfile(QString fileName)
 	  tmp = file.readLine().simplified().trimmed();
 	  names.append(tmp);
 	}
-      data->setNames(names);      
+      data->setNames(names);
     }
   qDebug() << data->getNum();
   qDebug() << data->getNames();
