@@ -68,6 +68,7 @@ int readfile(QString fileName)
       return 0;
     }
   
+  data->setFileName(fileName);
   if (!file.atEnd())
     {
       QString tmp = file.readLine().simplified().trimmed();
