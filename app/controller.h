@@ -13,6 +13,7 @@ class Controller : public QObject
   Controller(MainWindow &);
 public slots:
   void setFileName();
+  void showAbout();
 private:
   QString fileName;
   MainWindow    &window;

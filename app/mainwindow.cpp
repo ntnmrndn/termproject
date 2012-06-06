@@ -11,8 +11,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     QObject::connect(ui->actionOpen_DSM, SIGNAL(activated()), &(this->controller), SLOT(setFileName()));
 
+    //open about message box
+    QObject::connect(ui->actionAbout, SIGNAL(activated()), &(this->controller), SLOT(showAbout()));
+
+
     ui->listWidget->item(0)->setText("Ici bientot dynamique");
     ui->listWidget->item(1)->setText("Quand nanbei aura finit");
+
+
 }
 
 MainWindow::~MainWindow()

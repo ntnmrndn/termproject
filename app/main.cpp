@@ -9,5 +9,6 @@ int  main(int argc, char *argv[])
   app.setApplicationName("Term project");
   MainWindow main_Window;
   main_Window.show();
+
   return (app.exec());
 }
