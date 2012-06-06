@@ -1,3 +1,4 @@
+#include <QSize>
 #include <qDebug>
 #include <QStringList>
 #include "mainwindow.h"
@@ -26,6 +27,8 @@ void MainWindow::drawTable(const QVector<QString> &names, const QVector<QString>
   // gaffe segfault
   ui->tableWidget->setRowCount(names.size());
   ui->tableWidget->setColumnCount(data[0].size() / 2 + data[0].size() % 2);
+  ui->tableWidget->verticalHeader()->setDefaultSectionSize(20);
+  ui->tableWidget->horizontalHeader()->setDefaultSectionSize(20);
    for (int i = 0; i < names.size(); ++i)
      {
        QString s;
@@ -34,12 +37,15 @@ void MainWindow::drawTable(const QVector<QString> &names, const QVector<QString>
        s +=  names[i];
        ui->tableWidget->setVerticalHeaderItem(i, new QTableWidgetItem(s));
      }
+   QSize size(100, 100);
    for (int i = 0; i < names.size(); ++i)
      {
        for (int j = 0; j < data[0].size(); j += 2)
          {
            QString s(data[i][j]);
-           ui->tableWidget->setItem(i, j / 2, new QTableWidgetItem(s));
+           QTableWidgetItem *item = new QTableWidgetItem(s);
+           item->setSizeHint(size);
+           ui->tableWidget->setItem(i, j / 2, item);
          }
      }
 }
