@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QString>
+#include <QVector>
 
 namespace Ui {
 class MainWindow;
@@ -15,13 +16,13 @@ class Controller;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-
 public:
   explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+  ~MainWindow();
+  void drawNames(const QVector<QString> &);
 private:
   Ui::MainWindow *ui;
-   Controller controller;
+  Controller controller;
 };
 
 #endif // MAINWINDOW_H

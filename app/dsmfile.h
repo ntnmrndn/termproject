@@ -8,14 +8,13 @@ class dsmFile
 {
  public:
   dsmFile(const QString &);
-  ~dsmFile();
   void setNum(int);
   void setPositions(QVector<QString>&);
   void setNames(QVector<QString>&);
   void setFileName(QString&);
 
   int getNum();
-  QVector<QString> getNames();
+  QVector<QString> &getNames();
   QVector<QString> getPositions();
   QString getFileName();
 

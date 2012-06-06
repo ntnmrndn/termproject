@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     controller(*this)
 {
     ui->setupUi(this);
-    QObject::connect(ui->actionOpen_DSM, SIGNAL(activated()), &(this->controller), SLOT(setFileName()));
+    QObject::connect(ui->actionOpen_DSM, SIGNAL(activated()), &(this->controller), SLOT(openDSM()));
 
     //open about message box
     QObject::connect(ui->actionAbout, SIGNAL(activated()), &(this->controller), SLOT(showAbout()));
@@ -19,6 +19,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->listWidget->item(1)->setText("Quand nanbei aura finit");
 
 
+}
+
+void MainWindow::drawNames(const QVector<QString> & vec)
+{
+  vec;
 }
 
 MainWindow::~MainWindow()

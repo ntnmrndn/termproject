@@ -3,7 +3,7 @@
 #include <QApplication>
 #include <QtDebug>
 
-#include "readfile.h"
+#include "dsmfile.h"
 
 dsmFile::dsmFile(const QString &n):
   _fileName(n),
@@ -31,7 +31,7 @@ void dsmFile::setNames(QVector<QString> &names)
   _names = names;
 }
 
-QVector<QString> dsmFile::getNames()
+QVector<QString> &dsmFile::getNames()
 {
   return _names;
 }
@@ -53,7 +53,7 @@ QString dsmFile::getFileName()
 
 int readfile(QString fileName)
 {
-  dsmFile *data = new dsmFile();
+  dsmFile *data = new dsmFile(fileName);
   QVector<QString> positions;
   QVector<QString> names;
   QFile file(fileName);
