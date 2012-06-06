@@ -15,6 +15,9 @@ class Controller : public QObject
 public slots:
   void openDSM();
   void showAbout();
+  void Delete();
+  void Up();
+  void Down();
 private:
   MainWindow    &window;
   dsmFile       *dsm;

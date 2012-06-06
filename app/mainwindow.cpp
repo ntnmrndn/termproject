@@ -13,6 +13,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     QObject::connect(ui->actionOpen_DSM, SIGNAL(activated()), &(this->controller), SLOT(openDSM()));
     //open about message box
+    QObject::connect(ui->Up, SIGNAL(clicked()), &(this->controller), SLOT(Up()));
+    QObject::connect(ui->Down, SIGNAL(clicked()), &(this->controller), SLOT(Down()));
+    QObject::connect(ui->Delete, SIGNAL(clicked()), &(this->controller), SLOT(Delete()));
     QObject::connect(ui->actionAbout, SIGNAL(activated()), &(this->controller), SLOT(showAbout()));
 }
 
@@ -46,6 +49,13 @@ void MainWindow::drawTable(const QVector<QString> &names, const QVector<QString>
          }
      }
 }
+
+QListWidgetItem *MainWindow::getSelected() const
+{
+  QList<QListWidgetItem *> selecteds = ui->listWidget->selectedItems();
+  return selecteds.empty() ? 0 : selecteds[0];
+}
+
 
 
 MainWindow::~MainWindow()

@@ -1,3 +1,7 @@
+#include <qDebug>
+#include <QListWidgetItem>
+#include <QListWidget>
+#include <QList>
 #include <QFileDialog>
 #include <QMessageBox>
 #include "controller.h"
@@ -18,6 +22,28 @@ void Controller::openDSM()
                                                        tr("DSM (*.dsm)")));
   this->window.drawNames(this->dsm->getNames());
   this->window.drawTable(this->dsm->getNames(), this->dsm->getPositions());
+}
+
+
+void Controller::Delete()
+{
+
+  QListWidgetItem *item = this->window.getSelected();
+  if (!item)
+    return ;
+  const QString name = item->text();
+  qDebug() << name;
+  delete item;
+}
+
+void Controller::Down()
+{
+
+}
+
+void Controller::Up()
+{
+
 }
 
 void Controller::showAbout()
