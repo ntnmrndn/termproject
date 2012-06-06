@@ -20,6 +20,7 @@ public:
   explicit MainWindow(QWidget *parent = 0);
   ~MainWindow();
   void drawNames(const QVector<QString> &);
+  void drawTable(const QVector<QString> &, const QVector<QString>);
 private:
   Ui::MainWindow *ui;
   Controller controller;

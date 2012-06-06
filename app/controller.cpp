@@ -17,6 +17,7 @@ void Controller::openDSM()
                                                        "/dsm",
                                                        tr("DSM (*.dsm)")));
   this->window.drawNames(this->dsm->getNames());
+  this->window.drawTable(this->dsm->getNames(), this->dsm->getPositions());
 }
 
 void Controller::showAbout()
