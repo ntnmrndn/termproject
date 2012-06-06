@@ -68,7 +68,7 @@ int readfile(QString fileName)
       qDebug() << "Couldn't open the file";
       return 0;
     }
-
+  data->setFileName(fileName);
   if (!file.atEnd())
     {
       QString tmp = file.readLine().simplified().trimmed();
