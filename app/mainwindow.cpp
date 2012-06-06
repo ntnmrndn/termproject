@@ -25,14 +25,22 @@ void MainWindow::drawTable(const QVector<QString> &names, const QVector<QString>
 {
   // gaffe segfault
   ui->tableWidget->setRowCount(names.size());
-  ui->tableWidget->setColumnCount(data[0].size());
+  ui->tableWidget->setColumnCount(data[0].size() / 2 + data[0].size() % 2);
    for (int i = 0; i < names.size(); ++i)
      {
        QString s;
        s.setNum(i);
        s += " ";
        s +=  names[i];
-        ui->tableWidget->setVerticalHeaderItem(i, new QTableWidgetItem(s));
+       ui->tableWidget->setVerticalHeaderItem(i, new QTableWidgetItem(s));
+     }
+   for (int i = 0; i < names.size(); ++i)
+     {
+       for (int j = 0; j < data[0].size(); j += 2)
+         {
+           QString s(data[i][j]);
+           ui->tableWidget->setItem(i, j / 2, new QTableWidgetItem(s));
+         }
      }
 }
 
