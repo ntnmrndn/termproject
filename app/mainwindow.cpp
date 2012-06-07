@@ -11,16 +11,18 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow),
     controller(*this)
 {
-    ui->setupUi(this);
-    QObject::connect(ui->actionOpen_DSM, SIGNAL(activated()), &(this->controller), SLOT(openDSM()));
+  ui->setupUi(this);
+  ui->Form->hide();
+  QObject::connect(ui->actionOpen_DSM, SIGNAL(activated()), &(this->controller), SLOT(openDSM()));
     //open about message box
-    QObject::connect(ui->Up, SIGNAL(clicked()), &(this->controller), SLOT(Up()));
-    QObject::connect(ui->Down, SIGNAL(clicked()), &(this->controller), SLOT(Down()));
-    QObject::connect(ui->Delete, SIGNAL(clicked()), &(this->controller), SLOT(Delete()));
-    QObject::connect(ui->actionRedraw, SIGNAL(activated()), &(this->controller), SLOT(Draw()));
-    QObject::connect(ui->actionAbout, SIGNAL(activated()), &(this->controller), SLOT(showAbout()));
-    QObject::connect(ui->tableWidget, SIGNAL(itemChanged(QTableWidgetItem *)),
-                     &(this->controller), SLOT(itemChanged(QTableWidgetItem *)));
+  QObject::connect(ui->Ok, SIGNAL(clicked()), &(this->controller), SLOT(Add()));
+  QObject::connect(ui->Up, SIGNAL(clicked()), &(this->controller), SLOT(Up()));
+  QObject::connect(ui->Down, SIGNAL(clicked()), &(this->controller), SLOT(Down()));
+  QObject::connect(ui->Delete, SIGNAL(clicked()), &(this->controller), SLOT(Delete()));
+  QObject::connect(ui->actionRedraw, SIGNAL(activated()), &(this->controller), SLOT(Draw()));
+  QObject::connect(ui->actionAbout, SIGNAL(activated()), &(this->controller), SLOT(showAbout()));
+  QObject::connect(ui->tableWidget, SIGNAL(itemChanged(QTableWidgetItem *)),
+                   &(this->controller), SLOT(itemChanged(QTableWidgetItem *)));
 }
 
 void MainWindow::drawNames(const QVector<QString> & vec)
@@ -62,6 +64,17 @@ void MainWindow::drawTable(const QVector<QString> &names, const QVector<QString>
        }
 }
 
+
+const QString &MainWindow::getName() const
+{
+  return this->ui->lineEdit->text();
+}
+
+void MainWindow::clearName()
+{
+  this->ui->lineEdit->clear();
+}
+
 QListWidgetItem *MainWindow::getSelected() const
 {
   QList<QListWidgetItem *> selecteds = ui->listWidget->selectedItems();
@@ -74,5 +87,3 @@ MainWindow::~MainWindow()
 {
   delete ui;
 }
-
-

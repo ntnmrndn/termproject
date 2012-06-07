@@ -19,6 +19,7 @@ public slots:
   void showAbout();
   void Delete();
   void Up();
+  void Add();
   void Down();
   void Draw();
   void itemChanged(QTableWidgetItem * item);

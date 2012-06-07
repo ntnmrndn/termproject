@@ -17,7 +17,8 @@ class dsmFile
   void setNames();
   void setFileName(QString& fileName);
   void setModifNum(int nb);
-  
+
+  void Add(const QString &);
   void Delete(const QString &);
   void Down(const QString &);
   void Up(const QString &);

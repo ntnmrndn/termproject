@@ -23,6 +23,11 @@ void Controller::openDSM()
   this->Draw();
 }
 
+void Controller::Add()
+{
+  this->dsm->Add(this->window.getName());
+  this->window.clearName();
+}
 
 void Controller::Draw()
 {

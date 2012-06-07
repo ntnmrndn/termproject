@@ -184,6 +184,12 @@ int dsmFile::getNum()
   return _num;
 }
 
+
+void dsmFile::Add(const QString &)
+{
+
+}
+
 QString dsmFile::getFileName()
 {
   return _fileName;

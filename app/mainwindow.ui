@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>897</width>
+    <width>840</width>
     <height>1006</height>
    </rect>
   </property>
@@ -26,29 +26,68 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
-          <item>
-           <widget class="QPushButton" name="Up">
-            <property name="text">
-             <string>Up</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="Down">
-            <property name="text">
-             <string>Down</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="Delete">
-            <property name="text">
-             <string>Delete</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <widget class="QWidget" name="Buttons" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QPushButton" name="Up">
+             <property name="text">
+              <string>Up</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="Down">
+             <property name="text">
+              <string>Down</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="Add">
+             <property name="text">
+              <string>Add</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="Delete">
+             <property name="text">
+              <string>Delete</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="Form" native="true">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QLineEdit" name="lineEdit"/>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <widget class="QPushButton" name="Cancel">
+               <property name="text">
+                <string>Cancel</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="Ok">
+               <property name="text">
+                <string>Ok</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
         </item>
         <item>
          <widget class="QListWidget" name="listWidget">
@@ -69,7 +108,11 @@
        </layout>
       </item>
       <item>
-       <widget class="QTableWidget" name="tableWidget"/>
+       <widget class="QTableWidget" name="tableWidget">
+        <property name="inputMethodHints">
+         <set>Qt::ImhNone</set>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="Line" name="line">
@@ -87,7 +130,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>897</width>
+     <width>840</width>
      <height>22</height>
     </rect>
    </property>
@@ -102,10 +145,6 @@
      <string>File</string>
     </property>
     <addaction name="actionOpen_DSM"/>
-    <addaction name="actionNew_DSM"/>
-    <addaction name="separator"/>
-    <addaction name="actionSave_DSM"/>
-    <addaction name="actionSave_DSM_as"/>
     <addaction name="separator"/>
     <addaction name="actionNew_Clustering"/>
     <addaction name="actionLoad_Clustering"/>
@@ -220,21 +259,6 @@
     <string>About</string>
    </property>
   </action>
-  <action name="actionNew_DSM">
-   <property name="text">
-    <string>New DSM</string>
-   </property>
-  </action>
-  <action name="actionSave_DSM">
-   <property name="text">
-    <string>Save DSM</string>
-   </property>
-  </action>
-  <action name="actionSave_DSM_as">
-   <property name="text">
-    <string>Save DSM as</string>
-   </property>
-  </action>
  </widget>
  <resources/>
  <connections>
@@ -251,6 +275,134 @@
     <hint type="destinationlabel">
      <x>399</x>
      <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Add</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>260</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>210</x>
+     <y>110</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Ok</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>309</x>
+     <y>126</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>210</x>
+     <y>110</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Ok</sender>
+   <signal>clicked()</signal>
+   <receiver>Buttons</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>309</x>
+     <y>126</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>210</x>
+     <y>51</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Cancel</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>112</x>
+     <y>126</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>210</x>
+     <y>110</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Cancel</sender>
+   <signal>clicked()</signal>
+   <receiver>Buttons</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>112</x>
+     <y>126</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>210</x>
+     <y>51</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Add</sender>
+   <signal>clicked()</signal>
+   <receiver>Buttons</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>260</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>210</x>
+     <y>51</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Cancel</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>112</x>
+     <y>126</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>210</x>
+     <y>89</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>Ok</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>210</x>
+     <y>89</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>309</x>
+     <y>126</y>
     </hint>
    </hints>
   </connection>
