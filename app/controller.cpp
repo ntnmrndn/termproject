@@ -25,6 +25,8 @@ void Controller::openDSM()
 
 void Controller::Add()
 {
+  if (!dsm)
+    return ;
   this->dsm->Add(this->window.getName());
   this->window.clearName();
   this->Draw();

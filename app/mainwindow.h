@@ -26,7 +26,7 @@ public:
   void drawNames(const QVector<QString> &);
   void drawTable(const QVector<QString> &, const QVector<QString>&);
   QListWidgetItem *getSelected() const;
-  const QString &getName() const;
+  const QString getName() const;
   void clearName();
 private:
   Ui::MainWindow *ui;

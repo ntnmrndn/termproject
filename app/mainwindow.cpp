@@ -67,7 +67,7 @@ void MainWindow::drawTable(const QVector<QString> &names, const QVector<QString>
 }
 
 
-const QString &MainWindow::getName() const
+const QString MainWindow::getName() const
 {
   return this->ui->lineEdit->text();
 }
