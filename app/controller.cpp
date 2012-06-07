@@ -69,3 +69,9 @@ void Controller::showAbout()
   msgBox.setText("Team members: \n\n -Antoine Marandon \n -Thibaut Schmitt \n -Gregory Barry \n -Olivier Hugon \n -Nanbou Lin \n");
   msgBox.exec();
 }
+
+void Controller::saveDSM()
+{
+  //appel foncion dsm save                                                             
+  this->dsm->saveFile();
+}

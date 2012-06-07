@@ -14,6 +14,7 @@ class Controller : public QObject
   Controller(MainWindow &);
 public slots:
   void openDSM();
+  void saveDSM();
   void showAbout();
   void Delete();
   void Up();

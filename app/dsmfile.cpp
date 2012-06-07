@@ -115,3 +115,26 @@ void dsmFile::closeFile()
 {
   _file.close();
 }
+
+void dsmFile::saveFile()
+{
+  if (this)
+    {
+      this->closeFile();
+      if (_file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))
+        {
+	  QTextStream out(&_file);
+	  out << getNum() << endl;
+	  for (int i = 0 ; i < getNum() ; ++i)
+            {
+	      out << getPositions()[i] << endl;
+            }
+	  for (int i = 0 ; i < getNum() ; ++i)
+            {
+	      out << getNames()[i] << endl;
+            }
+	  this->closeFile();
+        }
+      this->_file.open(QIODevice::ReadOnly);
+    }
+}
