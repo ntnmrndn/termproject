@@ -20,30 +20,43 @@ void Controller::openDSM()
   this->dsm = new dsmFile(QFileDialog::getOpenFileName(&(this->window), tr("Open File"),
                                                        "/dsm",
                                                        tr("DSM (*.dsm)")));
+  this->Draw();
+}
+
+
+void Controller::Draw()
+{
+  if (!dsm)
+    return;
   this->window.drawNames(this->dsm->getNames());
   this->window.drawTable(this->dsm->getNames(), this->dsm->getPositions());
 }
 
-
 void Controller::Delete()
 {
-
   QListWidgetItem *item = this->window.getSelected();
   if (!item)
     return ;
-  const QString name = item->text();
-  qDebug() << name;
+  dsm->Delete(item->text());
   delete item;
 }
 
 void Controller::Down()
 {
-
+  QListWidgetItem *item = this->window.getSelected();
+  if (!item)
+    return ;
+  dsm->Down(item->text());
+  this->window.drawNames(this->dsm->getNames());
 }
 
 void Controller::Up()
 {
-
+  QListWidgetItem *item = this->window.getSelected();
+  if (!item)
+    return ;
+  dsm->Up(item->text());
+  this->window.drawNames(this->dsm->getNames());
 }
 
 void Controller::showAbout()

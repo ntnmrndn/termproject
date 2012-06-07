@@ -59,6 +59,23 @@ void dsmFile::setNames()
     }
 }
 
+void dsmFile::Delete(const QString &)
+{
+
+}
+
+
+void dsmFile::Down(const QString &)
+{
+
+}
+
+
+void dsmFile::Up(const QString &)
+{
+
+}
+
 QVector<QString> &dsmFile::getNames()
 {
   return _names;

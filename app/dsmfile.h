@@ -16,14 +16,18 @@ class dsmFile
   void setPositions();
   void setNames();
   void setFileName(QString& fileName);
-  
+
+
+  void Delete(const QString &);
+  void Down(const QString &);
+  void Up(const QString &);
+
   int getNum();
   QVector<QString> &getNames();
   QVector<QString> getPositions();
   QString getFileName();
   QFile getFile();
   void closeFile();
-
  private:
   QVector<QString> _positions;
   QVector<QString> _names;

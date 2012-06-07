@@ -16,17 +16,20 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->Up, SIGNAL(clicked()), &(this->controller), SLOT(Up()));
     QObject::connect(ui->Down, SIGNAL(clicked()), &(this->controller), SLOT(Down()));
     QObject::connect(ui->Delete, SIGNAL(clicked()), &(this->controller), SLOT(Delete()));
+    QObject::connect(ui->actionRedraw, SIGNAL(clicked()), &(this->controller), SLOT(Draw()));
     QObject::connect(ui->actionAbout, SIGNAL(activated()), &(this->controller), SLOT(showAbout()));
 }
 
 void MainWindow::drawNames(const QVector<QString> & vec)
 {
+  ui->listWidget->clear();
   for (int i = 0; i < vec.size(); ++i)
     ui->listWidget->addItem(vec[i]);
 }
 
 void MainWindow::drawTable(const QVector<QString> &names, const QVector<QString>data)
 {
+  ui->tableWidget->clear();
   // gaffe segfault
   ui->tableWidget->setRowCount(names.size());
   ui->tableWidget->setColumnCount(data[0].size() / 2 + data[0].size() % 2);

@@ -18,6 +18,7 @@ public slots:
   void Delete();
   void Up();
   void Down();
+  void Draw();
 private:
   MainWindow    &window;
   dsmFile       *dsm;
