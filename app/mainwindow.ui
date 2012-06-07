@@ -145,6 +145,10 @@
      <string>File</string>
     </property>
     <addaction name="actionOpen_DSM"/>
+    <addaction name="actionNew_DSM"/>
+    <addaction name="separator"/>
+    <addaction name="actionSave_DSM"/>
+    <addaction name="actionSave_DSM_as"/>
     <addaction name="separator"/>
     <addaction name="actionNew_Clustering"/>
     <addaction name="actionLoad_Clustering"/>
@@ -257,6 +261,21 @@
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
+   </property>
+  </action>
+  <action name="actionSave_DSM">
+   <property name="text">
+    <string>Save DSM</string>
+   </property>
+  </action>
+  <action name="actionSave_DSM_as">
+   <property name="text">
+    <string>Save DSM as</string>
+   </property>
+  </action>
+  <action name="actionNew_DSM">
+   <property name="text">
+    <string>New DSM</string>
    </property>
   </action>
  </widget>

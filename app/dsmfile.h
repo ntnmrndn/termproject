@@ -15,7 +15,7 @@ class dsmFile
   void setNum();
   void setPositions();
   void setNames();
-  void setFileName(QString& fileName);
+  void setNameFile(QString& fileName);
   void setModifNum(int nb);
 
   void Add(const QString &);
@@ -27,7 +27,7 @@ class dsmFile
   QVector<QString> &getNames();
   QVector<QString> &getPositions();
   QString getFileName();
-  QFile getFile();
+  QFile& getFile();
   void closeFile();
   void saveFile();
 

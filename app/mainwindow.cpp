@@ -23,6 +23,8 @@ MainWindow::MainWindow(QWidget *parent) :
   QObject::connect(ui->actionAbout, SIGNAL(activated()), &(this->controller), SLOT(showAbout()));
   QObject::connect(ui->tableWidget, SIGNAL(itemChanged(QTableWidgetItem *)),
                    &(this->controller), SLOT(itemChanged(QTableWidgetItem *)));
+  QObject::connect(ui->actionSave_DSM, SIGNAL(activated()), &(this->controller), SLOT(saveDSM()));
+  QObject::connect(ui->actionSave_DSM_as, SIGNAL(activated()), &(this->controller), SLOT(saveDSMAs()));
 }
 
 void MainWindow::drawNames(const QVector<QString> & vec)

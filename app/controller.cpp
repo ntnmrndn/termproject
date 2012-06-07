@@ -90,3 +90,13 @@ void Controller::saveDSM()
   //appel foncion dsm save
   this->dsm->saveFile();
 }
+
+void Controller::saveDSMAs()
+{
+  QString newFileName = QFileDialog::getSaveFileName(&this->window, QObject::tr("Save \
+your DSM file as"), "./", QObject::tr("Design Structure Matrix (*.dsm);;All Files (*)"))\
+    ;
+  this->dsm->getFile().setFileName(newFileName);
+  this->dsm->setNameFile(newFileName);
+  this->dsm->saveFile();
+}

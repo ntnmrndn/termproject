@@ -19,7 +19,7 @@ dsmFile::dsmFile(const QString &n):
     }
 }
 
-void dsmFile::setFileName(QString& fileName)
+void dsmFile::setNameFile(QString& fileName)
 {
   _fileName = fileName;
 }
@@ -234,6 +234,12 @@ void dsmFile::saveFile()
             }
 	  this->closeFile();
         }
-      this->_file.open(QIODevice::ReadOnly);
+      if (this->_file.open(QIODevice::ReadOnly))
+	return;
     }
+}
+
+QFile& dsmFile::getFile()
+{
+  return _file;
 }
