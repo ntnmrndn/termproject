@@ -88,6 +88,14 @@ void Controller::showAbout()
   msgBox.exec();
 }
 
+
+void Controller::newDSM()
+{
+  this->dsm = new dsmFile(QFileDialog::getSaveFileName(&this->window, QObject::tr("Save \
+your DSM file as"), "./", QObject::tr("Design Structure Matrix (*.dsm);;All Files (*)")));
+  this->Draw();
+}
+
 void Controller::saveDSM()
 {
   //appel foncion dsm save
