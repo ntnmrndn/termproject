@@ -9,7 +9,8 @@ SOURCES += \
     mainwindow.cpp\
     controller.cpp\
     dsmfile.cpp\
-    ParseXml.cpp
+    ParseXml.cpp \
+    clsxfile.cpp
 
 FORMS += \
     mainwindow.ui
@@ -18,4 +19,5 @@ HEADERS += \
     mainwindow.h\
     controller.h\
     dsmfile.h\
-    ParseXml.h
+    ParseXml.h \
+    clsxfile.h

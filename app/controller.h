@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include <QString>
 #include "dsmfile.h"
+#include "clsxfile.h"
 
 class MainWindow;
 
@@ -27,9 +28,11 @@ public slots:
   void Down();
   void Draw();
   void itemChanged(QTableWidgetItem * item);
+  void exportDSMAsClustering();
 private:
   MainWindow    &window;
   dsmFile       *dsm;
+  clsxfile      *clsx;
 };
 
 #endif /* !CONTROLLER_H_ */

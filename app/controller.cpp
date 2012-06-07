@@ -112,6 +112,14 @@ your DSM file as"), "./", QObject::tr("Design Structure Matrix (*.dsm);;All File
   this->dsm->saveFile();
 }
 
+void Controller::exportDSMAsClustering()
+{
+    if (this->dsm)
+    {
+        this->clsx = new clsxfile(this->dsm->getFileName());
+        this->clsx->exportDSM(this->dsm);
+    }
+}
 
 Controller::~Controller()
 {
