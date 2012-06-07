@@ -105,7 +105,7 @@ your DSM file as"), "./", QObject::tr("Design Structure Matrix (*.dsm);;All File
 }
 
 
-~Controller::Controller()
+Controller::~Controller()
 {
   delete dsm;
 }

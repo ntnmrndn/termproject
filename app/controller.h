@@ -13,6 +13,8 @@ class Controller : public QObject
   Q_OBJECT
   public:
   Controller(MainWindow &);
+  ~Controller();
+
 public slots:
   void openDSM();
   void saveDSM();
@@ -24,7 +26,6 @@ public slots:
   void Down();
   void Draw();
   void itemChanged(QTableWidgetItem * item);
-  ~Controller();
 private:
   MainWindow    &window;
   dsmFile       *dsm;
