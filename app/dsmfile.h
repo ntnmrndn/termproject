@@ -20,7 +20,7 @@ class dsmFile
   void Delete(const QString &);
   void Down(const QString &);
   void Up(const QString &);
-
+  void cellChanged(int, int, bool);
   int getNum();
   QVector<QString> &getNames();
   QVector<QString> getPositions();

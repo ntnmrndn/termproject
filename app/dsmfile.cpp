@@ -59,6 +59,11 @@ void dsmFile::setNames()
     }
 }
 
+void dsmFile::cellChanged(int, int, bool)
+{
+
+}
+
 void dsmFile::Delete(const QString &)
 {
 

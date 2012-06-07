@@ -1,6 +1,7 @@
 #ifndef CONTROLLER_H_
 # define CONTROLLER_H_
 
+#include <QTableWidget>
 #include <QMainWindow>
 #include <QString>
 #include "dsmfile.h"
@@ -20,6 +21,7 @@ public slots:
   void Up();
   void Down();
   void Draw();
+  void itemChanged(QTableWidgetItem * item);
 private:
   MainWindow    &window;
   dsmFile       *dsm;

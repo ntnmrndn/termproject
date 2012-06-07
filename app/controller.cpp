@@ -32,6 +32,15 @@ void Controller::Draw()
   this->window.drawTable(this->dsm->getNames(), this->dsm->getPositions());
 }
 
+void Controller::itemChanged(QTableWidgetItem *item)
+{
+  const QString s(item->text());
+  if (s != "x")
+    item->setText(" ");
+  this->dsm->cellChanged(item->row(), item->column(), s == "x");
+}
+
+
 void Controller::Delete()
 {
   QListWidgetItem *item = this->window.getSelected();
@@ -63,8 +72,6 @@ void Controller::showAbout()
 {
   QMessageBox msgBox;
   msgBox.setWindowTitle("About");
-
-
   msgBox.setStandardButtons(QMessageBox::Close);
   msgBox.setText("Team members: \n\n -Antoine Marandon \n -Thibaut Schmitt \n -Gregory Barry \n -Olivier Hugon \n -Nanbou Lin \n");
   msgBox.exec();
@@ -72,6 +79,6 @@ void Controller::showAbout()
 
 void Controller::saveDSM()
 {
-  //appel foncion dsm save                                                             
+  //appel foncion dsm save
   this->dsm->saveFile();
 }
