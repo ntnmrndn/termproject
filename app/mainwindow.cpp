@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
   ui->setupUi(this);
   ui->Form->hide();
   QObject::connect(ui->actionOpen_DSM, SIGNAL(activated()), &(this->controller), SLOT(openDSM()));
+  QObject::connect(ui->actionNew_DSM, SIGNAL(activated()), &(this->controller), SLOT(newDSM()));
     //open about message box
   QObject::connect(ui->Ok, SIGNAL(clicked()), &(this->controller), SLOT(Add()));
   QObject::connect(ui->Up, SIGNAL(clicked()), &(this->controller), SLOT(Up()));
@@ -38,6 +39,8 @@ void MainWindow::drawNames(const QVector<QString> & vec)
 
 void MainWindow::drawTable(const QVector<QString> &names, const QVector<QString> &data)
 {
+  QObject::disconnect(ui->tableWidget, SIGNAL(itemChanged(QTableWidgetItem *)),
+                   &(this->controller), SLOT(itemChanged(QTableWidgetItem *)));
   ui->tableWidget->clear();
   if (names.empty() || data.empty())
     {
@@ -63,6 +66,8 @@ void MainWindow::drawTable(const QVector<QString> &names, const QVector<QString>
          QString s(data[i][j] == '0' ? ' ' : 'x');
          ui->tableWidget->setItem(i, j / 2, new QTableWidgetItem(s));
        }
+   QObject::connect(ui->tableWidget, SIGNAL(itemChanged(QTableWidgetItem *)),
+                       &(this->controller), SLOT(itemChanged(QTableWidgetItem *)));
 }
 
 
