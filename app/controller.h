@@ -24,6 +24,7 @@ public slots:
   void Down();
   void Draw();
   void itemChanged(QTableWidgetItem * item);
+  ~Controller();
 private:
   MainWindow    &window;
   dsmFile       *dsm;
