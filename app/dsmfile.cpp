@@ -184,10 +184,11 @@ int dsmFile::getNum()
   return _num;
 }
 
-
-void dsmFile::Add(const QString &)
+void dsmFile::Add(const QString& name)
 {
-
+    setModifNum(getNum() + 1);
+    _names.push_back(name);
+    _positions.push_back("0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0");
 }
 
 QString dsmFile::getFileName()
