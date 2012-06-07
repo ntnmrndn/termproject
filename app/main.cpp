@@ -5,7 +5,6 @@
 
 int  main(int argc, char *argv[])
 {
-	qDebug() << "toto";
 	QApplication app(argc, argv);
 	// ParseXml test;
 

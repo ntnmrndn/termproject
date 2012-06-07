@@ -28,6 +28,7 @@ void MainWindow::drawNames(const QVector<QString> & vec)
   ui->listWidget->clear();
   for (int i = 0; i < vec.size(); ++i)
     ui->listWidget->addItem(vec[i]);
+  ui->listWidget->setCurrentRow(0);
 }
 
 
@@ -36,7 +37,11 @@ void MainWindow::drawTable(const QVector<QString> &names, const QVector<QString>
   ui->tableWidget->clear();
   // gaffe segfault
   if (names.empty() || data.empty())
-    return ;
+    {
+      ui->tableWidget->setRowCount(0);
+      ui->tableWidget->setColumnCount(0);
+      return ;
+    }
   ui->tableWidget->setRowCount(names.size());
   ui->tableWidget->setColumnCount(data[0].size() / 2 + data[0].size() % 2);
   ui->tableWidget->verticalHeader()->setDefaultSectionSize(20);
