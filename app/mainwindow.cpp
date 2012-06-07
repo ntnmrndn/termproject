@@ -31,10 +31,12 @@ void MainWindow::drawNames(const QVector<QString> & vec)
 }
 
 
-void MainWindow::drawTable(const QVector<QString> &names, const QVector<QString>data)
+void MainWindow::drawTable(const QVector<QString> &names, const QVector<QString> &data)
 {
   ui->tableWidget->clear();
   // gaffe segfault
+  if (names.empty() || data.empty())
+    return ;
   ui->tableWidget->setRowCount(names.size());
   ui->tableWidget->setColumnCount(data[0].size() / 2 + data[0].size() % 2);
   ui->tableWidget->verticalHeader()->setDefaultSectionSize(20);

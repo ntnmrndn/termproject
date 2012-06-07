@@ -24,7 +24,7 @@ public:
   explicit MainWindow(QWidget *parent = 0);
   ~MainWindow();
   void drawNames(const QVector<QString> &);
-  void drawTable(const QVector<QString> &, const QVector<QString>);
+  void drawTable(const QVector<QString> &, const QVector<QString>&);
   QListWidgetItem *getSelected() const;
 
 private:
