@@ -48,6 +48,7 @@ void Controller::Delete()
     return ;
   dsm->Delete(item->text());
   delete item;
+  this->Draw();
 }
 
 void Controller::Down()
@@ -57,6 +58,7 @@ void Controller::Down()
     return ;
   dsm->Down(item->text());
   this->window.drawNames(this->dsm->getNames());
+  this->Draw();
 }
 
 void Controller::Up()
@@ -66,6 +68,7 @@ void Controller::Up()
     return ;
   dsm->Up(item->text());
   this->window.drawNames(this->dsm->getNames());
+  this->Draw();
 }
 
 void Controller::showAbout()
