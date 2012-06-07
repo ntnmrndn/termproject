@@ -1,6 +1,7 @@
 #include <QSize>
 #include <qDebug>
 #include <QStringList>
+#include <QTableWidget>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "controller.h"
@@ -16,8 +17,10 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->Up, SIGNAL(clicked()), &(this->controller), SLOT(Up()));
     QObject::connect(ui->Down, SIGNAL(clicked()), &(this->controller), SLOT(Down()));
     QObject::connect(ui->Delete, SIGNAL(clicked()), &(this->controller), SLOT(Delete()));
-    QObject::connect(ui->actionRedraw, SIGNAL(clicked()), &(this->controller), SLOT(Draw()));
+    QObject::connect(ui->actionRedraw, SIGNAL(activated()), &(this->controller), SLOT(Draw()));
     QObject::connect(ui->actionAbout, SIGNAL(activated()), &(this->controller), SLOT(showAbout()));
+    QObject::connect(ui->tableWidget, SIGNAL(itemChanged(QTableWidgetItem *)),
+                     &(this->controller), SLOT(itemChanged(QTableWidgetItem *)));
 }
 
 void MainWindow::drawNames(const QVector<QString> & vec)
@@ -26,6 +29,7 @@ void MainWindow::drawNames(const QVector<QString> & vec)
   for (int i = 0; i < vec.size(); ++i)
     ui->listWidget->addItem(vec[i]);
 }
+
 
 void MainWindow::drawTable(const QVector<QString> &names, const QVector<QString>data)
 {
@@ -44,13 +48,11 @@ void MainWindow::drawTable(const QVector<QString> &names, const QVector<QString>
        ui->tableWidget->setVerticalHeaderItem(i, new QTableWidgetItem(s));
      }
    for (int i = 0; i < names.size(); ++i)
-     {
-       for (int j = 0; j < data[0].size(); j += 2)
-         {
-           QString s(data[i][j]);
-           ui->tableWidget->setItem(i, j / 2, new QTableWidgetItem(s));
-         }
-     }
+     for (int j = 0; j < data[0].size(); j += 2)
+       {
+         QString s(data[i][j] == '0' ? ' ' : 'x');
+         ui->tableWidget->setItem(i, j / 2, new QTableWidgetItem(s));
+       }
 }
 
 QListWidgetItem *MainWindow::getSelected() const
