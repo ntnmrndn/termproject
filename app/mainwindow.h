@@ -20,6 +20,9 @@ class Controller;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+
+public slots:
+  void actionShow_Row_Labels();
 public:
   explicit MainWindow(QWidget *parent = 0);
   ~MainWindow();
@@ -31,7 +34,7 @@ public:
 private:
   Ui::MainWindow *ui;
   Controller controller;
-public:
+  bool showRowLabel;
 };
 
 #endif // MAINWINDOW_H

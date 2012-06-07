@@ -9,7 +9,8 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    controller(*this)
+    controller(*this),
+    showRowLabel(false)
 {
   ui->setupUi(this);
   ui->Form->hide();
@@ -26,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
                    &(this->controller), SLOT(itemChanged(QTableWidgetItem *)));
   QObject::connect(ui->actionSave_DSM, SIGNAL(activated()), &(this->controller), SLOT(saveDSM()));
   QObject::connect(ui->actionSave_DSM_as, SIGNAL(activated()), &(this->controller), SLOT(saveDSMAs()));
+  QObject::connect(ui->actionShow_Row_Labels, SIGNAL(activated()), this, SLOT(actionShow_Row_Labels()));
 }
 
 void MainWindow::drawNames(const QVector<QString> & vec)
@@ -36,6 +38,11 @@ void MainWindow::drawNames(const QVector<QString> & vec)
   ui->listWidget->setCurrentRow(0);
 }
 
+void MainWindow::actionShow_Row_Labels()
+{
+  showRowLabel = !showRowLabel;
+  ui->actionShow_Row_Labels->setText(showRowLabel ? "Show Row Labels" : "Hide Row Labels");
+}
 
 void MainWindow::drawTable(const QVector<QString> &names, const QVector<QString> &data)
 {
@@ -56,8 +63,11 @@ void MainWindow::drawTable(const QVector<QString> &names, const QVector<QString>
      {
        QString s;
        s.setNum(i);
-       s += " ";
-       s +=  names[i];
+       if (this->showRowLabel)
+         {
+           s += " ";
+           s +=  names[i];
+         }
        ui->tableWidget->setVerticalHeaderItem(i, new QTableWidgetItem(s));
      }
    for (int i = 0; i < names.size(); ++i)
