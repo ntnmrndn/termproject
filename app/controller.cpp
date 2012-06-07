@@ -27,6 +27,7 @@ void Controller::Add()
 {
   this->dsm->Add(this->window.getName());
   this->window.clearName();
+  this->Draw();
 }
 
 void Controller::Draw()
