@@ -64,9 +64,22 @@ void dsmFile::setNames()
     }
 }
 
-void dsmFile::cellChanged(int, int, bool)
+void dsmFile::cellChanged(int x, int y, bool select)
 {
-
+   //qDebug() << x << "-" << y << select;
+    QString temp;
+    QString valeur;
+    temp = getPositions()[x];
+    if (y > 0)
+    {
+        y = y*2;
+    }
+    if (select)
+        valeur = "1";
+    else
+        valeur = "0";
+    temp.replace(y, 1, valeur);
+    getPositions()[x] = temp;
 }
 
 
@@ -184,10 +197,11 @@ int dsmFile::getNum()
   return _num;
 }
 
-
-void dsmFile::Add(const QString &)
+void dsmFile::Add(const QString& name)
 {
-
+    setModifNum(getNum() + 1);
+    _names.push_back(name);
+    _positions.push_back("0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0");
 }
 
 QString dsmFile::getFileName()
