@@ -16,6 +16,7 @@ class Controller : public QObject
   ~Controller();
 
 public slots:
+  void Generate();
   void openDSM();
   void newDSM();
   void saveDSM();

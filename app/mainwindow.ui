@@ -24,6 +24,33 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
+       <widget class="QWidget" name="formWidget" native="true">
+        <layout class="QFormLayout" name="formLayout">
+         <item row="3" column="0">
+          <widget class="QLineEdit" name="nbRow">
+           <property name="inputMethodHints">
+            <set>Qt::ImhDigitsOnly</set>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QPushButton" name="okNB">
+           <property name="text">
+            <string>Generate</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Nb of row</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
          <widget class="QWidget" name="Buttons" native="true">
@@ -422,6 +449,150 @@
     <hint type="destinationlabel">
      <x>309</x>
      <y>126</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>nbRow</sender>
+   <signal>returnPressed()</signal>
+   <receiver>okNB</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>120</x>
+     <y>46</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>141</x>
+     <y>79</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>okNB</sender>
+   <signal>clicked()</signal>
+   <receiver>formWidget</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>141</x>
+     <y>79</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>120</x>
+     <y>513</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>okNB</sender>
+   <signal>clicked()</signal>
+   <receiver>Buttons</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>141</x>
+     <y>79</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>393</x>
+     <y>57</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>okNB</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>141</x>
+     <y>79</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>393</x>
+     <y>133</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionNew_DSM</sender>
+   <signal>activated()</signal>
+   <receiver>Buttons</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>393</x>
+     <y>57</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionNew_DSM</sender>
+   <signal>activated()</signal>
+   <receiver>Form</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>393</x>
+     <y>133</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionNew_DSM</sender>
+   <signal>activated()</signal>
+   <receiver>formWidget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>120</x>
+     <y>513</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionNew_DSM</sender>
+   <signal>activated()</signal>
+   <receiver>listWidget</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>393</x>
+     <y>589</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>okNB</sender>
+   <signal>clicked()</signal>
+   <receiver>listWidget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>149</x>
+     <y>125</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>393</x>
+     <y>589</y>
     </hint>
    </hints>
   </connection>

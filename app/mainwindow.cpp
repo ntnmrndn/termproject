@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
   ui->setupUi(this);
   ui->Form->hide();
+  ui->formWidget->hide();
   QObject::connect(ui->actionOpen_DSM, SIGNAL(activated()), &(this->controller), SLOT(openDSM()));
   QObject::connect(ui->actionNew_DSM, SIGNAL(activated()), &(this->controller), SLOT(newDSM()));
     //open about message box
@@ -28,6 +29,13 @@ MainWindow::MainWindow(QWidget *parent) :
   QObject::connect(ui->actionSave_DSM, SIGNAL(activated()), &(this->controller), SLOT(saveDSM()));
   QObject::connect(ui->actionSave_DSM_as, SIGNAL(activated()), &(this->controller), SLOT(saveDSMAs()));
   QObject::connect(ui->actionShow_Row_Labels, SIGNAL(activated()), this, SLOT(actionShow_Row_Labels()));
+  QObject::connect(ui->okNB, SIGNAL(clicked()),&(this->controller), SLOT(Generate()));
+
+}
+
+int MainWindow::getNumber()
+{
+  return this->ui->nbRow->text().toInt();
 }
 
 void MainWindow::drawNames(const QVector<QString> & vec)

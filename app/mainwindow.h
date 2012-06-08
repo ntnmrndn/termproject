@@ -31,6 +31,7 @@ public:
   QListWidgetItem *getSelected() const;
   const QString getName() const;
   void clearName();
+  int getNumber();
 private:
   Ui::MainWindow *ui;
   Controller controller;
