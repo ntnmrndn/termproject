@@ -29,6 +29,7 @@ public slots:
   void Down();
   void Draw();
   void SortNames();
+  void loadCLSX();
   void itemChanged(QTableWidgetItem * item);
   void exportDSMAsClustering();
 private:

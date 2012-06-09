@@ -12,14 +12,13 @@ class clsxfile
 public:
 
     clsxfile(const QString &);
-    void exportDSM(dsmFile *);
+
     QString getName();
-    //QString getFileName();
-    //QFile& getFile();
     ParseXml &getParser();
     QFile& getFile();
-    //void closeFile();
-    //void saveFile();
+
+    void loaderCLSX();
+    void exportDSM(dsmFile *);
 
 private:
     QString     _fileName;

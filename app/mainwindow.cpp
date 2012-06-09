@@ -32,6 +32,7 @@ MainWindow::MainWindow(QWidget *parent) :
   QObject::connect(ui->okNB, SIGNAL(clicked()),&(this->controller), SLOT(Generate()));
   QObject::connect(ui->actionExport_As, SIGNAL(activated()), &(this->controller), SLOT(exportDSMAsClustering()));
   QObject::connect(ui->actionSort, SIGNAL(activated()), &(this->controller), SLOT(SortNames()));
+  QObject::connect(ui->actionLoad_Clustering, SIGNAL(activated()), &(this->controller), SLOT(loadCLSX()));
 }
 
 int MainWindow::getNumber()

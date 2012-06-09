@@ -148,6 +148,20 @@ void Controller::SortNames()
     this->Draw();
 }
 
+void Controller::loadCLSX()
+{
+    if (this->dsm)
+    {
+        //new clsx
+        this->clsx = new clsxfile(QFileDialog::getOpenFileName(&(this->window), tr("Open File"),
+                                                             "/clsx",
+                                                             tr("CLSX (*.clsx)")));
+        this->clsx->loaderCLSX();
+        //need to draw again
+        this->Draw();
+    }
+}
+
 Controller::~Controller()
 {
   delete dsm;

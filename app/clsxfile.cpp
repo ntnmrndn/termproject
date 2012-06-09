@@ -40,9 +40,10 @@ void clsxfile::exportDSM(dsmFile *_dsm)
         //on ferme le fichier
         _export.close();
     }
+}
 
-
-
-
-
+void clsxfile::loaderCLSX()
+{
+    //load le fichier dans clsx
+    _parser.openFile(this->getName());
 }

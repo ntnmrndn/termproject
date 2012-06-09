@@ -39,26 +39,20 @@ void     ParseXml::exportDSM(QFile &pfile, dsmFile &dsm)
 
 int		ParseXml::openFile(QString filename){
 	
-	qDebug() << "value 1 "; 
 	QDomDocument doc("CLSXfile");
 	QFile file(filename);
-	qDebug() << "value 10 ";
 	if (!file.open(QIODevice::ReadOnly)){
-		qDebug() << "value 4 "; 
 		exit;
 	}
 	if (!doc.setContent(&file)){
-		qDebug() << "value 5 "; 
 		file.close();
 		exit;
 	}
 	file.close();
-	qDebug() << " value 9 ";
 	//parseur
 
 	QDomElement root = doc.documentElement();
 	if(root.tagName() != "cluster"){
-		qDebug() << "value 6 ";
 		exit;
 	}
 	this->readFile(root);
