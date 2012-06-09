@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
   QObject::connect(ui->actionSave_DSM, SIGNAL(activated()), &(this->controller), SLOT(saveDSM()));
   QObject::connect(ui->actionSave_DSM_as, SIGNAL(activated()), &(this->controller), SLOT(saveDSMAs()));
   QObject::connect(ui->actionShow_Row_Labels, SIGNAL(activated()), this, SLOT(actionShow_Row_Labels()));
+  QObject::connect(ui->okNB, SIGNAL(clicked()),&(this->controller), SLOT(Generate()));
   QObject::connect(ui->actionExport_As, SIGNAL(activated()), &(this->controller), SLOT(exportDSMAsClustering()));
 }
 

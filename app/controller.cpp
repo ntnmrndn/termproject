@@ -32,6 +32,16 @@ void Controller::Add()
   this->Draw();
 }
 
+
+void Controller::Generate()
+{
+  int i = this->window.getNumber();
+  for (; i ; --i)
+    this->dsm->Add("no name");
+     this->Draw();
+}
+
+
 void Controller::Draw()
 {
   if (!dsm)
@@ -54,7 +64,7 @@ void Controller::Delete()
   QListWidgetItem *item = this->window.getSelected();
   if (!item)
     return ;
-  dsm->Delete(item->text());
+ dsm->Delete(item->text());
   delete item;
   this->Draw();
 }
