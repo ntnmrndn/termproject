@@ -36,8 +36,14 @@ void Controller::Add()
 void Controller::Generate()
 {
   int i = this->window.getNumber();
+  int j = 0;
+  QString tempname;
   for (; i ; --i)
-    this->dsm->Add("no name");
+  {
+    j++;
+    tempname =  "entity_" + QString::number(j) ;
+    this->dsm->Add(tempname);
+  }
      this->Draw();
 }
 

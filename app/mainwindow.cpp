@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
   ui->setupUi(this);
   ui->Form->hide();
+  ui->formWidget->hide();
   QObject::connect(ui->actionOpen_DSM, SIGNAL(activated()), &(this->controller), SLOT(openDSM()));
   QObject::connect(ui->actionNew_DSM, SIGNAL(activated()), &(this->controller), SLOT(newDSM()));
     //open about message box
