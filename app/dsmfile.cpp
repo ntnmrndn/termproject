@@ -229,25 +229,6 @@ void dsmFile::closeFile()
   _file.close();
 }
 
-void dsmFile::SortNames()
-{
-    if (this)
-    {
-        QVector<QString> compNames = getNames();
-        QVector<QString> compPositions = getPositions();
-
-        qSort(_names.begin(), _names.end());
-        for (int i = 0; i < getNum() ; ++i)
-        {
-            for (int j = 0; j < getNum(); ++j)
-            {
-                if (compNames[i] == getNames()[j])
-                    qSwap(getPositions()[j], compPositions[i]);
-            }
-        }
-    }
-}
-
 void dsmFile::saveFile()
 {
   if (this)

@@ -2,6 +2,7 @@
 #include <QListWidgetItem>
 #include <QListWidget>
 #include <QList>
+#include <QString>
 #include <QFileDialog>
 #include <QMessageBox>
 #include "controller.h"
@@ -133,17 +134,13 @@ void Controller::exportDSMAsClustering()
 {
     if (this->dsm)
     {
-        this->clsx = new clsxfile(this->dsm->getFileName());
+        QString name;
+        name = this->dsm->getFileName();
+        name.replace(name.size() - 3,3,"clsx");
+        this->clsx = new clsxfile(name);
         this->clsx->exportDSM(this->dsm);
     }
 }
-
-void Controller::SortNames()
-{
-    this->dsm->SortNames();
-    this->Draw();
-}
-
 
 Controller::~Controller()
 {

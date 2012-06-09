@@ -5,7 +5,9 @@
 #include <QtXml>
 #include <QDomDocument>
 #include <QMessageBox>
+#include <QTextStream>
 #include <QFile>
+#include "dsmfile.h"
 
 class ParseXml : public QObject 
 {
@@ -17,6 +19,7 @@ class ParseXml : public QObject
 		int	openFile(QString filename);
 		int readFile(QDomElement root);
 		int	getInfo();
+        void exportDSM(QFile &, dsmFile& );
 	private : 
 		QDomDocument doc;
 };

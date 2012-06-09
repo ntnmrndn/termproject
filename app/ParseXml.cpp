@@ -19,6 +19,24 @@ int		ParseXml::getInfo(){
 	return 0;
 }
 
+void     ParseXml::exportDSM(QFile &pfile, dsmFile &dsm)
+{
+    qDebug() << "on ecrit";
+    QTextStream out(&pfile);
+    out << "<cluster xmlns=\"http://rise.cs.drexel.edu/minos/clsx\">" << endl;
+    out << "<group name=\"ROOT\">" << endl;
+    for (int i = 0 ; i < dsm.getNames().count(); ++i)
+    {
+        out << "<item name=\"" << dsm.getNames()[i]<< "\" />" << endl;
+    }
+    out << "</group>" << endl;
+    out << " </cluster>" << endl;
+
+    QMessageBox msgBox;
+    msgBox.setText("Export finish");
+    msgBox.exec();
+}
+
 int		ParseXml::openFile(QString filename){
 	
 	qDebug() << "value 1 "; 
