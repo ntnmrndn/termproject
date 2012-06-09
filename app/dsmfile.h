@@ -30,6 +30,8 @@ public:
  QFile& getFile();
  void closeFile();
  void saveFile();
+ void SortNames();
+
 
 private:
  QVector<QString> _positions;

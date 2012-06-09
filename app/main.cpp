@@ -10,8 +10,8 @@ int  main(int argc, char *argv[])
 
 	app.setOrganizationName("EPITECH");
 	app.setApplicationName("Term project");
-	//MainWindow main_Window;
-	//main_Window.show();
-	test->openFile("test.clsx");
+	MainWindow main_Window;
+	main_Window.show();
+	//test->openFile("test.clsx");
 	return (app.exec());
 }
