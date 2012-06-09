@@ -32,6 +32,11 @@ MainWindow::MainWindow(QWidget *parent) :
   QObject::connect(ui->actionExport_As, SIGNAL(activated()), &(this->controller), SLOT(exportDSMAsClustering()));
 }
 
+int MainWindow::getNumber()
+{
+  return this->ui->nbRow->text().toInt();
+}
+
 void MainWindow::drawNames(const QVector<QString> & vec)
 {
   ui->listWidget->clear();
@@ -68,7 +73,7 @@ void MainWindow::drawTable(const QVector<QString> &names, const QVector<QString>
        if (this->showRowLabel)
          {
            s += " ";
-           s +=  names[i];
+           s += names[i];
          }
        ui->tableWidget->setVerticalHeaderItem(i, new QTableWidgetItem(s));
      }

@@ -48,6 +48,7 @@ void Controller::Draw()
     return;
   this->window.drawNames(this->dsm->getNames());
   this->window.drawTable(this->dsm->getNames(), this->dsm->getPositions());
+
 }
 
 void Controller::itemChanged(QTableWidgetItem *item)
