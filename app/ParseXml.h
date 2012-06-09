@@ -14,7 +14,9 @@ class ParseXml : public QObject
 		ParseXml();
 		~ParseXml();
 	public slots : 
-		int readFile();
+		int	openFile(QString filename);
+		int readFile(QDomElement root);
+		int	getInfo();
 	private : 
 		QDomDocument doc;
 };
