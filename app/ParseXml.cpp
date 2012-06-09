@@ -21,7 +21,7 @@ int		ParseXml::getInfo(){
 
 void     ParseXml::exportDSM(QFile &pfile, dsmFile &dsm)
 {
-    qDebug() << "on ecrit";
+
     QTextStream out(&pfile);
     out << "<cluster xmlns=\"http://rise.cs.drexel.edu/minos/clsx\">" << endl;
     out << "<group name=\"ROOT\">" << endl;
@@ -79,7 +79,6 @@ int		ParseXml::readFile(QDomElement root){
 				if (!tmp.isNull()){
 					QDomElement p = tmp.toElement();
 					affichage = affichage + " " + p.attribute("name"); //on stocke la valeur dans la variable d'affichage
-					qDebug() << "value : " << affichage;
 					temp = p.firstChildElement(); //on teste si le fils de l'element courant est un node
 					if (temp.hasChildNodes()){
 						this->readFile(p);//on descend d'un niveau dans le fichier
