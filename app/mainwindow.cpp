@@ -31,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
   QObject::connect(ui->actionShow_Row_Labels, SIGNAL(activated()), this, SLOT(actionShow_Row_Labels()));
   QObject::connect(ui->okNB, SIGNAL(clicked()),&(this->controller), SLOT(Generate()));
   QObject::connect(ui->actionExport_As, SIGNAL(activated()), &(this->controller), SLOT(exportDSMAsClustering()));
+  QObject::connect(ui->actionSort, SIGNAL(activated()), &(this->controller), SLOT(SortNames()));
 }
 
 int MainWindow::getNumber()

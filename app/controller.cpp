@@ -142,6 +142,12 @@ void Controller::exportDSMAsClustering()
     }
 }
 
+void Controller::SortNames()
+{
+    this->dsm->SortNames();
+    this->Draw();
+}
+
 Controller::~Controller()
 {
   delete dsm;

@@ -199,7 +199,7 @@
     </property>
     <addaction name="actionRedraw"/>
     <addaction name="separator"/>
-    <addaction name="actionFind_2"/>
+    <addaction name="actionSort"/>
     <addaction name="separator"/>
     <addaction name="actionShow_Row_Labels"/>
    </widget>
@@ -275,9 +275,9 @@
     <string>Find</string>
    </property>
   </action>
-  <action name="actionFind_2">
+  <action name="actionSort">
    <property name="text">
-    <string>Find</string>
+    <string>Sort</string>
    </property>
   </action>
   <action name="actionShow_Row_Labels">
